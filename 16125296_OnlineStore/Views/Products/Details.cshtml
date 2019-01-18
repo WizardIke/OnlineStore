@@ -41,6 +41,23 @@
         <dd>
             @Html.DisplayFor(model => model.Price)
         </dd>
+        @if (Model.ProductImageMappings != null && Model.ProductImageMappings.Any())
+        {
+            <dt></dt>
+            <dd>
+                <img src="@(Url.Content(Constants.ProductImagePath) + Model.ProductImageMappings.OrderBy(pim=>pim.ImageNumber).ElementAt(0).ProductImage.FileName)"
+                     style=padding:5px; />
+            </dd>
+            <dt></dt>
+            <dd>
+                @foreach (var item in Model.ProductImageMappings.OrderBy(pim => pim.ImageNumber))
+                {
+                    <a href="@(Url.Content(Constants.ProductImagePath) +  item.ProductImage.FileName)">
+                        <img src="@(Url.Content(Constants.ProductThumbnailPath) + item.ProductImage.FileName)" style=padding:5px>
+                    </a>
+                }
+            </dd>
+        }
 
     </dl>
 </div>

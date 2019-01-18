@@ -200,10 +200,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductImagesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,6 +223,18 @@
     <Compile Include="Migrations\201901090247231_CategoryNameValidation.Designer.cs">
       <DependentUpon>201901090247231_CategoryNameValidation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901160251126_ProductImages.cs" />
+    <Compile Include="Migrations\201901160251126_ProductImages.Designer.cs">
+      <DependentUpon>201901160251126_ProductImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901160320434_UniqueFileName.cs" />
+    <Compile Include="Migrations\201901160320434_UniqueFileName.Designer.cs">
+      <DependentUpon>201901160320434_UniqueFileName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901170420283_CreateProductImageMappings.cs" />
+    <Compile Include="Migrations\201901170420283_CreateProductImageMappings.Designer.cs">
+      <DependentUpon>201901170420283_CreateProductImageMappings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -227,11 +242,14 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductImage.cs" />
+    <Compile Include="Models\ProductImageMapping.cs" />
     <Compile Include="Models\ProductMetaData.cs" />
     <Compile Include="OSDB\StoreContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ProductIndexViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -303,9 +321,16 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\ProductImages\Upload.cshtml" />
+    <Content Include="Views\ProductImages\Delete.cshtml" />
+    <Content Include="Views\ProductImages\Details.cshtml" />
+    <Content Include="Views\ProductImages\Edit.cshtml" />
+    <Content Include="Views\ProductImages\Index.cshtml" />
+    <Content Include="Views\Error\FileUploadLimitExceeded.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ProductImages\Thumbnails\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -329,6 +354,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901090247231_CategoryNameValidation.resx">
       <DependentUpon>201901090247231_CategoryNameValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901160251126_ProductImages.resx">
+      <DependentUpon>201901160251126_ProductImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901160320434_UniqueFileName.resx">
+      <DependentUpon>201901160320434_UniqueFileName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901170420283_CreateProductImageMappings.resx">
+      <DependentUpon>201901170420283_CreateProductImageMappings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
