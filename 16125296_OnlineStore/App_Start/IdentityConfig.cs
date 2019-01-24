@@ -148,7 +148,17 @@ namespace _16125296_OnlineStore
                 user = new ApplicationUser
                 {
                     UserName = name,
-                    Email = name
+                    Email = name,
+                    FirstName = "Admin",
+                    LastName = "Admin",
+                    DateOfBirth = new DateTime(2015, 1, 1),
+                    Address = new Address
+                    {
+                        AddressLine1 = "1 Admin Road",
+                        Town = "Town",
+                        Country = "Country",
+                        PostCode = "PostCode"
+                    }
                 };
                 var result = userManager.Create(user, password);
                 result = userManager.SetLockoutEnabled(user.Id, false);
@@ -159,6 +169,15 @@ namespace _16125296_OnlineStore
             if (!rolesForUser.Contains(role.Name))
             {
                 var result = userManager.AddToRole(user.Id, role.Name);
+            }
+
+            //Create a user role
+            const string userRoleName = "User";
+            role = roleManager.FindByName(userRoleName);
+            if (role == null)
+            {
+                role = new IdentityRole(userRoleName);
+                var roleresult = roleManager.Create(role);
             }
         }
     }

@@ -15,6 +15,7 @@ using _16125296_OnlineStore.OSDB;
 
 namespace _16125296_OnlineStore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductImagesController : Controller
     {
         private StoreContext db = new StoreContext();
