@@ -332,6 +332,11 @@
     <Content Include="Views\Shared\DisplayTemplates\Address.cshtml" />
     <Content Include="Views\UsersAdmin\Create.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Address.cshtml" />
+    <Content Include="Views\UsersAdmin\Edit.cshtml" />
+    <Content Include="Views\Shared\_CreateRegisterUserPartial.cshtml" />
+    <Content Include="Views\Shared\_UserDetailsPartial.cshtml" />
+    <Content Include="Views\Manage\Edit.cshtml" />
+    <Content Include="Views\Shared\_EditUserPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

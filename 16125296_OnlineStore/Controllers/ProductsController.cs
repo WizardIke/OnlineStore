@@ -12,11 +12,13 @@ using PagedList;
 
 namespace _16125296_OnlineStore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
         private StoreContext db = new StoreContext();
 
         // GET: Products
+        [AllowAnonymous]
         public ActionResult Index(string category, string search, string sortBy, int? page)
         {
             //instantiate a new view model
@@ -79,8 +81,9 @@ namespace _16125296_OnlineStore.Controllers
             return View(viewModel);
         }
 
-            // GET: Products/Details/5
-            public ActionResult Details(int? id)
+        // GET: Products/Details/5
+        [AllowAnonymous]
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
