@@ -9,5 +9,6 @@ namespace _16125296_OnlineStore.OSDB
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ProductImageMapping> ProductImageMappings { get; set; }
+        public DbSet<BasketLine> BasketLines { get; set; }
     }
 }

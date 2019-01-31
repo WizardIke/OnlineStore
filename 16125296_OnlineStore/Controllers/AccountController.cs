@@ -73,12 +73,25 @@ namespace _16125296_OnlineStore.Controllers
                 return View(model);
             }
 
+            //check if a user was previously logged in wihtout logging out. 
+            bool userWasLoggedIn = !string.IsNullOrWhiteSpace(User.Identity.Name);
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
+                    if (userWasLoggedIn)
+                    {
+                        Session.Abandon();
+                    }
+                    Basket basket = Basket.GetBasket();
+                    //if there was no previously logged in user migrate the basket from GUID to the //username
+                    if (!userWasLoggedIn)
+                    {
+                        basket.MigrateBasket(model.Email);
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -172,6 +185,8 @@ namespace _16125296_OnlineStore.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    Basket basket = Basket.GetBasket();
+                    basket.MigrateBasket(model.Email);
                     return RedirectToLocal(returnUrl);
                 }
                 ViewBag.ReturnUrl = returnUrl;
@@ -402,6 +417,7 @@ namespace _16125296_OnlineStore.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
 
