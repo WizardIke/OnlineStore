@@ -24,7 +24,9 @@ namespace _16125296_OnlineStore
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css"/*,
+                      "~/Content/store.css",
+                      "~/Content/reset.css"*/));
         }
     }
 }

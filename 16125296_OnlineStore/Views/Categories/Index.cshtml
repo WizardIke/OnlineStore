@@ -8,7 +8,7 @@
 
 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
 {
-    <p>
+    <p class="large-bold-text" >
         @Html.ActionLink("Create New", "Create")
     </p>
 }
@@ -23,7 +23,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="large-text" >
                 @Html.ActionLink(item.Name, "Index", "Products", new { category = item.Name }, null)
             </td>
             <td>

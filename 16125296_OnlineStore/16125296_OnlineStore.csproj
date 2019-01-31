@@ -230,6 +230,7 @@
     <Compile Include="Migrations\StoreConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\BasketLine.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryMetaData.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -251,6 +252,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\store.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
