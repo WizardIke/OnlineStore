@@ -51,6 +51,54 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
             };
             products.ForEach(c => context.Products.AddOrUpdate(p => p.Name, c));
             context.SaveChanges();
+
+            var orders = new List<Order>
+            {
+                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
+                 Country="Country", PostCode="PostCode" }, TotalPrice=631,
+                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 1) ,
+                 DeliveryName="Admin" },
+                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
+                 Country="Country", PostCode="PostCode" }, TotalPrice=239,
+                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 2) ,
+                 DeliveryName="Admin" },
+                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
+                 Country="Country", PostCode="PostCode" }, TotalPrice=239,
+                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 3) ,
+                 DeliveryName="Admin" },
+                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
+                 Country="County", PostCode="PostCode" }, TotalPrice=631,
+                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 4) ,
+                 DeliveryName="Admin" },
+                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
+                 Country="Country", PostCode="PostCode" }, TotalPrice=19.49M,
+                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 5) ,
+                 DeliveryName="Admin" }
+            };
+
+            orders.ForEach(c => context.Orders.AddOrUpdate(o => o.DateCreated, c));
+            context.SaveChanges();
+
+            var orderLines = new List<OrderLine>
+            {
+                new OrderLine { OrderID = 1, ProductID = products.Single( c=> c.Name == "Lenovo 510").ID,
+                    ProductName ="Lenovo 510", Quantity =1, UnitPrice=products.Single( c=> c.Name == "Lenovo 510").Price },
+
+                new OrderLine { OrderID = 2, ProductID = products.Single( c=> c.Name == "ASUS VE248").ID,
+                 ProductName="ASUS VE248", Quantity=1, UnitPrice=products.Single( c=> c.Name =="ASUS VE248").Price },
+
+                new OrderLine { OrderID = 3, ProductID = products.Single( c=> c.Name == "ASUS VE248").ID,
+                    ProductName ="ASUS VE248", Quantity=1, UnitPrice=products.Single( c=> c.Name == "ASUS VE248").Price },
+
+                new OrderLine { OrderID = 4, ProductID = products.Single( c=> c.Name == "Lenovo 510").ID,
+                    ProductName ="Lenovo 510", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Lenovo 510").Price },
+
+                new OrderLine { OrderID = 5, ProductID = products.Single( c=> c.Name == "8Ware USB Blutooth").ID,
+                    ProductName ="8Ware USB Blutooth", Quantity=1, UnitPrice=products.Single( c=> c.Name == "8Ware USB Blutooth").Price }
+            };
+
+            orderLines.ForEach(c => context.OrderLines.AddOrUpdate(ol => ol.OrderID, c));
+            context.SaveChanges();
         }
     }
 }

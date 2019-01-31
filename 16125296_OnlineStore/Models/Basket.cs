@@ -156,5 +156,27 @@ namespace _16125296_OnlineStore.Models
             HttpContext.Current.Session[BasketSessionKey] = userName;
         }
 
+        public decimal CreateOrderLines(int orderID)
+        {
+            decimal orderTotal = 0;
+            var basketLines = GetBasketLines();
+            foreach (var item in basketLines)
+            {
+                OrderLine orderLine = new OrderLine
+                {
+                    Product = item.Product,
+                    ProductID = item.ProductID,
+                    ProductName = item.Product.Name,
+                    Quantity = item.Quantity,
+                    UnitPrice = item.Product.Price,
+                    OrderID = orderID
+                };
+                orderTotal += (item.Quantity * item.Product.Price);
+                db.OrderLines.Add(orderLine);
+            }
+            db.SaveChanges();
+            EmptyBasket();
+            return orderTotal;
+        }
     }
 }

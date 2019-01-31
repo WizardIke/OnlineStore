@@ -56,7 +56,9 @@
             <div class="col-md-1">
                 @Html.DisplayFor(model => model.TotalCost)
             </div>
-
+            <div class="col-md-1">
+                @Html.ActionLink("Order now", "Review", "Orders", null, new { @class = "btn btn-sm btn-success" })
+            </div>
         </div>
     </div>
 }
