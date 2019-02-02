@@ -178,6 +178,7 @@ namespace _16125296_OnlineStore.Controllers
             viewModel.Name = product.Name;
             viewModel.Description = product.Description;
             viewModel.Price = product.Price;
+            viewModel.CategoryID = product.CategoryID.GetValueOrDefault();
             return View(viewModel);
         }
 

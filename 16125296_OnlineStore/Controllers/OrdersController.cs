@@ -54,7 +54,7 @@ namespace _16125296_OnlineStore.Controllers
                 // return View(db.Orders.ToList());
                 orders = orders.Where(o => o.UserID == User.Identity.Name);
             }
-            if (!String.IsNullOrEmpty(orderSearch))
+            if (!string.IsNullOrEmpty(orderSearch))
             {
                 orders = orders.Where(
                     o => o.OrderID.ToString().Equals(orderSearch) ||
@@ -135,8 +135,10 @@ namespace _16125296_OnlineStore.Controllers
         public async Task<ActionResult> Review()
         {
             Basket basket = Basket.GetBasket();
-            Order order = new Models.Order();
-            order.UserID = User.Identity.Name;
+            Order order = new Order
+            {
+                UserID = User.Identity.Name
+            };
             ApplicationUser user = await UserManager.FindByNameAsync(order.UserID);
             order.DeliveryName = user.FirstName + " " + user.LastName;
             order.DeliveryAddress = user.Address;

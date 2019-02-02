@@ -22,12 +22,12 @@ namespace _16125296_OnlineStore.ViewModels
         [RegularExpression(@"^[a-zA-Z0-9'-'\s]*$", ErrorMessage = "Please enter a product description made up of only letters and spaces")]
         public string Description { get; set; }
 
-        public decimal Price { get; set; }
         [Required(ErrorMessage = "The Product price cannot be blank")]
         [Range(0.10, 10000, ErrorMessage = "Please enter a product price between 0.10 and 10000")]
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:c}")]
         [RegularExpression("[0-9]+(\\.[0-9)][0-9]?)?", ErrorMessage = "The Price must be a number upto two decimal places")]
+        public decimal Price { get; set; }
 
         [Display(Name = "Category")]
         public int CategoryID { get; set; }
