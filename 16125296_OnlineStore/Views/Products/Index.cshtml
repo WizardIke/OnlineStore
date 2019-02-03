@@ -1,11 +1,9 @@
-﻿@*@model IEnumerable<Lab04_2018.Models.Product>*@
-@model _16125296_OnlineStore.ViewModels.ProductIndexViewModel
+﻿@model _16125296_OnlineStore.ViewModels.ProductIndexViewModel
 @using PagedList.Mvc
 @{
-    //ViewBag.Title = "Index";
     ViewBag.Title = "Products";
 }
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 <p>
     @(String.IsNullOrWhiteSpace(Model.Search) ? "Showing all" : "You search for " + Model.Search + " found") @Model.Products.TotalItemCount products
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))

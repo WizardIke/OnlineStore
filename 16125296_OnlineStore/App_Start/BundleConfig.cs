@@ -23,10 +23,10 @@ namespace _16125296_OnlineStore
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      /*"~/Content/reset.css"*/
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"/*,
-                      "~/Content/store.css",
-                      "~/Content/reset.css"*/));
+                      "~/Content/site.css",
+                      "~/Content/store.css"));
         }
     }
 }
