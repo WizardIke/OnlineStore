@@ -65,7 +65,7 @@ footer {
     background-color: deepskyblue;
     color: white;
     height: 30px;
-    line-height: 30px;
+    /*ine-height: 30px;*/
     padding: 5px;
     border-radius: 5px;
 }
@@ -176,6 +176,15 @@ dt, dd {
     line-height: 20px;
 }
 
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        width: 230px;
+    }
+    .dl-horizontal dd {
+        margin-left: 10em;
+    }
+}
+
 table {
     width: 100%;
 }
@@ -190,4 +199,9 @@ th {
 td {
     padding: 5px;
     vertical-align: top;
+}
+
+.icon {
+    width: 5em;
+    height: 5em;
 }

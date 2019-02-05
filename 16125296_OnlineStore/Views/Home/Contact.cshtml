@@ -1,17 +1,30 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
 
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
+    The Dancing Star, Buttermore Place<br />
+    Mardany city, The Pembarium Empire<br />
 </address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<dl class="dl-horizontal">
+    <dt>
+        Contact Sigil:
+    </dt>
+    <dd>
+        <address><img src="~/Content/Icons/ContactSigil.jpg" alt="Contact Sigil" class="icon" /></address>
+    </dd>
+    <dt>
+        Teleportation Sigil:
+    </dt>
+    <dd>
+        <address><img src="~/Content/Icons/TeleportationSigil.png" aly="Teleportation Sigil" class="icon" /></address>
+    </dd>
+    <dt>
+        <strong>Support:</strong>
+    </dt>
+    <dd>
+        <address><a href="mailto:Support@example.com">Support@TheDancingStar.com</a></address>
+    </dd>
+</dl>
