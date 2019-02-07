@@ -19,12 +19,12 @@ namespace _16125296_OnlineStore.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "The Product description cannot be blank")]
-        [StringLength(200, MinimumLength = 5, ErrorMessage = "Please enter a product description between 5 and 200 characters in length")]
-        [RegularExpression(@"^[a-zA-z0-9'-'\s]*$", ErrorMessage = "Please enter a product description made up of only letters and spaces")]
+        [StringLength(500, MinimumLength = 5, ErrorMessage = "Please enter a product description between 5 and 500 characters in length")]
+        [RegularExpression(@"^[a-zA-z0-9'-'\s\p{P}]*$", ErrorMessage = "Please enter a product description made up of only letters, numbers and spaces")]
         public string Description { get; set; }
         
         [Required(ErrorMessage = "The Product price cannot be blank")]
-        [Range(0.10, 10000, ErrorMessage = "Please enter a product price between 0.10 and 10000")]
+        [Range(0.10, 100000000, ErrorMessage = "Please enter a product price between 0.10 and 100000000")]
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal Price { get; set; }

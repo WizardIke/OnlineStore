@@ -3,7 +3,6 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
     using Models;
     using System.Collections.Generic;
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
@@ -21,59 +20,191 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
 
             var categories = new List<Category>
             {
-                new Category {Name = "Computers and Tablets" },
-                new Category {Name = "PC Peripherals" },
-                new Category {Name = "PC Parts" },
-                new Category {Name = "Networking" },
-                new Category {Name = "Printing and Office" },
-                new Category {Name = "Software and Games" },
-                new Category {Name = "Phones and GPS" },
-                new Category {Name = "TV Video and Audio" },
-                new Category {Name = "Cameras and Drones" },
-                new Category {Name = "Toys and More" },
-                new Category {Name = "Apple"}
+                new Category {Name = "Rings" },
+                new Category {Name = "Wands" },
+                new Category {Name = "Weapons" },
+                new Category {Name = "Armor" },
+                new Category {Name = "Amulets" },
+                new Category {Name = "Staves" },
+                new Category {Name = "Misc" },
+                new Category {Name = "Guns" },
+                new Category {Name = "Cloaks" },
+                new Category {Name = "Potions" },
+                new Category {Name = "Robes" },
              };
             categories.ForEach(c => context.Categories.AddOrUpdate(p => p.Name, c));
             context.SaveChanges();
 
             var products = new List<Product>
             {
-                new Product {Name = "Lenovo 510", Description = "All in one", Price = 631, CategoryID= categories.Single(c=>c.Name == "Computers and Tablets").ID},
-                new Product {Name = "ASUS VE248", Description = "LED Gaming Monitor", Price = 239, CategoryID= categories.Single(c=>c.Name == "PC Peripherals").ID},
-                new Product {Name = "Samsung S32351", Description = "Full HD LED Monitor", Price = 369, CategoryID= categories.Single(c=>c.Name == "PC Peripherals").ID},
-                new Product {Name = "ASUS Strix GeForce", Description = "GTX1060 Grpahics Card 6GB", Price = 573, CategoryID= categories.Single(c=>c.Name == "PC Parts").ID},
-                new Product {Name = "8Ware USB Blutooth", Description = "V4 Adapter Version", Price = 19.49M, CategoryID= categories.Single(c=>c.Name == "Networking").ID},
-                new Product {Name = "Brother Toner", Description = "TN1070 Black 1000 Pages", Price = 60.99M, CategoryID= categories.Single(c=>c.Name == "Printing and Office").ID},
-                new Product {Name = "Microsoft Home 10", Description = "64 bit operating system", Price = 171, CategoryID= categories.Single(c=>c.Name == "Software and Games").ID},
-                new Product {Name = "Microsoft XBox One X", Description = "1 TB capacity", Price = 749, CategoryID= categories.Single(c=>c.Name == "TV Video and Audio").ID},
-                new Product {Name = "TP Link NC 450", Description = "HD Pan Tilt Wifi Camera", Price = 163.31M, CategoryID= categories.Single(c=>c.Name == "Cameras and Drones").ID},
-
+                new Product {
+                    Name = "Flaming Greatsword",
+                    Description = "While out of its scabbard, this sword emits searing hot flame that are both good for fighting monsters and cooking.",
+                    Price = 47580m,
+                    CategoryID = categories.Single(c=>c.Name == "Weapons").ID
+                },
+                new Product {
+                    Name = "Sword of Life Stealing",
+                    Description = "Killing an enemy with this sword will restore vigor to the weilder and close wounds.\n\nIn no event shall The Dancing Star be held liably for an irresistible urge to kill or other change in personality related to the use of the item. ",
+                    Price = 99999.99m,
+                    CategoryID = categories.Single(c=>c.Name == "Weapons").ID
+                },
+                new Product {
+                    Name = "Hardened Longsword",
+                    Description = "An extremely sharp sword that has been magically enchanted to never blunten or tarnish.",
+                    Price = 627.65m,
+                    CategoryID = categories.Single(c=>c.Name == "Weapons").ID
+                },
+                new Product {
+                    Name = "Dagger of Venom",
+                    Description = "Anyone so much as scratched by this dagger will colapse gasping for air and die shortly after. Do NOT use this dagger for shaving.",
+                    Price = 17320m,
+                    CategoryID = categories.Single(c=>c.Name == "Weapons").ID
+                },
+                new Product {
+                    Name = "Mace of Smiting",
+                    Description = "When weilded by a brave, honorable, and righteous warrior, This mace can strike down powerful undead, fends, abominations and other unholy creatures in searing light.",
+                    Price = 5600m,
+                    CategoryID = categories.Single(c=>c.Name == "Weapons").ID
+                },
+                new Product {
+                    Name = "Portable Boat",
+                    Description = "This miniture 80 person canoe can fit in your pocket. Place it in water, however, and it will rappidly grow to 40 metres long.",
+                    Price = 130000m,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                new Product {
+                    Name = "Stopwatch",
+                    Description = "An intricate deivce of gnomish design, this watch comes on a delicate gold chain and always measures the time accurately. Pressing the button on the top of it will freeze time for everyone but you for a number of minutes equal to the number of minutes left in the hour. However, using the watch more than once in the same hour can result in you being flung years into the past so that you will die of old age shortly after using the watch.",
+                    Price = 2500000m,
+                    CategoryID = categories.Single(c=>c.Name == "Amulets").ID
+                },
+                new Product {
+                    Name = "Ring of Feather Fall",
+                    Description = "While wearing this ring you drift gently to the ground while falling.",
+                    Price = 24000m,
+                    CategoryID = categories.Single(c=>c.Name == "Rings").ID
+                },
+                new Product {
+                    Name = "Boots of levitation",
+                    Description = "While wearing these boots you can drift slowly through the air.",
+                    Price = 56200m,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                new Product {
+                    Name = "Winged Boots",
+                    Description = "These boots allow you to fly through the air at high speed.",
+                    Price = 153800m,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                new Product {
+                    Name = "Flying broomstick",
+                    Description = "While standing astride this broomstick, you can fly through the air at high speed.",
+                    Price = 78000m,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                new Product {
+                    Name = "Troll Hide Armor",
+                    Description = "This armor causes wounds to slowly close and limbs to regrow after a few days while it is worn.",
+                    Price = 93800m,
+                    CategoryID = categories.Single(c=>c.Name == "Armor").ID
+                },
+                 new Product {
+                    Name = "Ring of regeneration",
+                    Description = "This ring cause wounds to close and limbs to regrow after about a days while it is worn.",
+                    Price = 163800m,
+                    CategoryID = categories.Single(c=>c.Name == "Rings").ID
+                },
+                 new Product {
+                    Name = "Cloak of Invisibility",
+                    Description = "While you wear this cloak with the hood up you are completely invisible.",
+                    Price = 2100000m,
+                    CategoryID = categories.Single(c=>c.Name == "Cloaks").ID
+                },
+                 new Product {
+                    Name = "Cloak of Gliding",
+                    Description = "While you wear this cloak and hold the corners out, you can glide at tremendous speed.",
+                    Price = 39119.40m,
+                    CategoryID = categories.Single(c=>c.Name == "Cloaks").ID
+                },
+                 new Product {
+                    Name = "Glowing Orb",
+                    Description = "A swirling glow inside this cystal sphere emits a dull glow. Glowing orbs come in a number of colors including green, red, purple and white and have been magically hardened to prevent breaking when dropped as this was a common problem reported with previous models.",
+                    Price = 240m,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                 new Product {
+                    Name = "Boots of Silence",
+                    Description = "Crafted long ago by elfs, These boots will make you footsteps completely silent.",
+                    Price = 62100m,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                 new Product {
+                    Name = "Flying Carpet",
+                    Description = "A rug made from brightly colored fine thread. It can fly up to 8 people.",
+                    Price = 265000m,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                 new Product {
+                    Name = "Robes of the Lich King",
+                    Description = "These legendary robes wither and rot the wearers body making the wearer into an immortal lich. They also make casting even the most vile necromancy spells easier and controlling undead trivial.\n\nThese robe are NOT intented for use, but are meant as a display item. You might be required to pass a physiological test before being able to buy this item.",
+                    Price = 15000000m,
+                    CategoryID = categories.Single(c=>c.Name == "Robes").ID
+                },
+                 new Product {
+                    Name = "Wand of Magic Missiles",
+                    Description = "Pointing this wand at something and speaking its command word will cause multiple missiles to shoot out of it. Using it multiple times in a row will reduce the number of missiles it shoots until it is given a few hours to recharge.",
+                    Price = 799.99m,
+                    CategoryID = categories.Single(c=>c.Name == "Wands").ID
+                },
+                 new Product {
+                    Name = "Potion of Healing",
+                    Description = "Drinking it will fully healing minor wounds and will usually get you back on your feet even if you are badly wounded.",
+                    Price = 39.99m,
+                    CategoryID = categories.Single(c=>c.Name == "Potions").ID
+                },
+                  new Product {
+                    Name = "Potion of Invisibility",
+                    Description = "Quaffing this potion will render you invisible for an hour.",
+                    Price = 450m,
+                    CategoryID = categories.Single(c=>c.Name == "Potions").ID
+                },
+                 new Product {
+                    Name = "Pistol",
+                    Description = "A small weapon that can be held in one hand similar to a hand crossbow. It fires a small piece of lead for devastating effect.\n\nWarning: guns are still experimental and have been known to jam or explode.",
+                    Price = 10000m,
+                    CategoryID = categories.Single(c=>c.Name == "Guns").ID
+                },
             };
             products.ForEach(c => context.Products.AddOrUpdate(p => p.Name, c));
             context.SaveChanges();
 
             var orders = new List<Order>
             {
-                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
-                 Country="Country", PostCode="PostCode" }, TotalPrice=631,
-                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 1) ,
-                 DeliveryName="Admin" },
-                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
-                 Country="Country", PostCode="PostCode" }, TotalPrice=239,
-                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 2) ,
-                 DeliveryName="Admin" },
-                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
-                 Country="Country", PostCode="PostCode" }, TotalPrice=239,
-                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 3) ,
-                 DeliveryName="Admin" },
-                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
-                 Country="County", PostCode="PostCode" }, TotalPrice=631,
-                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 4) ,
-                 DeliveryName="Admin" },
-                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="Town1",
-                 Country="Country", PostCode="PostCode" }, TotalPrice=19.49M,
-                 UserID="admin1@example.com", DateCreated=new DateTime(2014, 1, 5) ,
-                 DeliveryName="Admin" }
+                new Order { DeliveryAddress = new Address { AddressLine1="Villa Auditore", Town="Monteriggioni",
+                 Country="Italy", PostCode="53035" }, TotalPrice=118539.40m,
+                 UserID="ezio@asn.com", DateCreated=new DateTime(2490, 11, 29),
+                 DeliveryName="Ezio" },
+                new Order { DeliveryAddress = new Address { AddressLine1="45 Hausal Road", Town="Dlomable",
+                 Country="The Pembarium Empire", PostCode="47538" }, TotalPrice=56200m,
+                 UserID="vm@TheMagesGuild.com", DateCreated=new DateTime(2007, 6, 4),
+                 DeliveryName="Vendal Markimus" },
+                new Order { DeliveryAddress = new Address { AddressLine1="67 Gaiul Street", Town="North Dahort",
+                 Country="The Pembarium Empire", PostCode="78465" }, TotalPrice=163919.97m,
+                 UserID="Andrin@TheMagesGuild.com", DateCreated=new DateTime(2015, 8, 3),
+                 DeliveryName="Andrin Usdil" },
+                new Order { DeliveryAddress = new Address { AddressLine1="12 Palace boulevard", Town="Connarma",
+                 Country="The Pembarium Empire", PostCode="2348" }, TotalPrice=5760,
+                 UserID="Palargey@FastMail.com", DateCreated=new DateTime(2015, 9, 5),
+                 DeliveryName="Palargey Bauldine" },
+                new Order { DeliveryAddress = new Address { AddressLine1="31 Tavern Street", Town="Gosilia",
+                 Country="The North", PostCode="89501" }, TotalPrice=163800m,
+                 UserID="Jiak@example.com", DateCreated=new DateTime(2018, 1, 16),
+                 DeliveryName="Jiak Banrule" },
+                new Order { DeliveryAddress = new Address { AddressLine1="Villa Auditore", Town="Monteriggioni",
+                 Country="Italy", PostCode="53035" }, TotalPrice=2100000m,
+                 UserID="ezio@asn.com", DateCreated=new DateTime(2507, 4, 15),
+                 DeliveryName="Ezio" },
             };
 
             orders.ForEach(c => context.Orders.AddOrUpdate(o => o.DateCreated, c));
@@ -81,20 +212,31 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
 
             var orderLines = new List<OrderLine>
             {
-                new OrderLine { OrderID = 1, ProductID = products.Single( c=> c.Name == "Lenovo 510").ID,
-                    ProductName ="Lenovo 510", Quantity =1, UnitPrice=products.Single( c=> c.Name == "Lenovo 510").Price },
+                new OrderLine { OrderID = orders[0].OrderID, ProductID = products.Single( c=> c.Name == "Dagger of Venom").ID,
+                    ProductName ="Dagger of Venom", Quantity = 1, UnitPrice=products.Single( c=> c.Name == "Dagger of Venom").Price },
+                new OrderLine { OrderID = orders[0].OrderID, ProductID = products.Single( c=> c.Name == "Cloak of Gliding").ID,
+                    ProductName ="Cloak of Gliding", Quantity = 1, UnitPrice=products.Single( c=> c.Name == "Cloak of Gliding").Price },
+                new OrderLine { OrderID = orders[0].OrderID, ProductID = products.Single( c=> c.Name == "Boots of Silence").ID,
+                    ProductName ="Boots of Silence", Quantity = 1, UnitPrice=products.Single( c=> c.Name == "Boots of Silence").Price },
 
-                new OrderLine { OrderID = 2, ProductID = products.Single( c=> c.Name == "ASUS VE248").ID,
-                 ProductName="ASUS VE248", Quantity=1, UnitPrice=products.Single( c=> c.Name =="ASUS VE248").Price },
+                new OrderLine { OrderID = orders[1].OrderID, ProductID = products.Single( c=> c.Name == "Boots of levitation").ID,
+                 ProductName="Boots of levitation", Quantity=1, UnitPrice=products.Single( c=> c.Name =="Boots of levitation").Price },
 
-                new OrderLine { OrderID = 3, ProductID = products.Single( c=> c.Name == "ASUS VE248").ID,
-                    ProductName ="ASUS VE248", Quantity=1, UnitPrice=products.Single( c=> c.Name == "ASUS VE248").Price },
+                new OrderLine { OrderID = orders[2].OrderID, ProductID = products.Single( c=> c.Name == "Ring of regeneration").ID,
+                    ProductName ="Ring of regeneration", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Ring of regeneration").Price },
+                new OrderLine { OrderID = orders[2].OrderID, ProductID = products.Single( c=> c.Name == "Potion of Healing").ID,
+                    ProductName ="Potion of Healing", Quantity=3, UnitPrice=products.Single( c=> c.Name == "Potion of Healing").Price },
 
-                new OrderLine { OrderID = 4, ProductID = products.Single( c=> c.Name == "Lenovo 510").ID,
-                    ProductName ="Lenovo 510", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Lenovo 510").Price },
+                new OrderLine { OrderID = orders[3].OrderID, ProductID = products.Single( c=> c.Name == "Glowing Orb").ID,
+                    ProductName ="Glowing Orb", Quantity=24, UnitPrice=products.Single( c=> c.Name == "Glowing Orb").Price },
 
-                new OrderLine { OrderID = 5, ProductID = products.Single( c=> c.Name == "8Ware USB Blutooth").ID,
-                    ProductName ="8Ware USB Blutooth", Quantity=1, UnitPrice=products.Single( c=> c.Name == "8Ware USB Blutooth").Price }
+                new OrderLine { OrderID = orders[4].OrderID, ProductID = products.Single( c=> c.Name == "Winged Boots").ID,
+                    ProductName ="Winged Boots", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Winged Boots").Price },
+                new OrderLine { OrderID = orders[4].OrderID, ProductID = products.Single( c=> c.Name == "Pistol").ID,
+                    ProductName ="Pistol", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Pistol").Price },
+
+                new OrderLine { OrderID = orders[5].OrderID, ProductID = products.Single( c=> c.Name == "Cloak of Invisibility").ID,
+                    ProductName ="Cloak of Invisibility", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Cloak of Invisibility").Price },
             };
 
             orderLines.ForEach(c => context.OrderLines.AddOrUpdate(ol => ol.OrderID, c));

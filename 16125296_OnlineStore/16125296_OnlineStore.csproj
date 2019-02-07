@@ -236,6 +236,10 @@
     <Compile Include="Migrations\201901310949483_AddOrders.Designer.cs">
       <DependentUpon>201901310949483_AddOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902071327329_LessStrictValidation.cs" />
+    <Compile Include="Migrations\201902071327329_LessStrictValidation.Designer.cs">
+      <DependentUpon>201902071327329_LessStrictValidation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\StoreConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -397,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901310949483_AddOrders.resx">
       <DependentUpon>201901310949483_AddOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071327329_LessStrictValidation.resx">
+      <DependentUpon>201902071327329_LessStrictValidation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
