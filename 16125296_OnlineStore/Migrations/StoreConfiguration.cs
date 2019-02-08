@@ -35,6 +35,59 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
             categories.ForEach(c => context.Categories.AddOrUpdate(p => p.Name, c));
             context.SaveChanges();
 
+            var productImages = new List<ProductImage>
+            {
+                new ProductImage{FileName = "BagOfDevouering1.jpg"},
+                new ProductImage{FileName = "BootsOfLevitation.jpg"},
+                new ProductImage{FileName = "BootsOfSilence1.jpeg"},
+                new ProductImage{FileName = "BootsOfSilence2.jpg"},
+                new ProductImage{FileName = "BootsOfSilence3.jpg"},
+                new ProductImage{FileName = "CloakOdGliding.jpeg"},
+                new ProductImage{FileName = "DaggerOfVenom1.jpeg"},
+                new ProductImage{FileName = "DaggerOfVenom2.jpg"},
+                new ProductImage{FileName = "DaggerOfVenom3.png"},
+                new ProductImage{FileName = "FlamingSword1.jpg"},
+                new ProductImage{FileName = "FlamingSword2.jpg"}, //10
+                new ProductImage{FileName = "FlamingSword3.jpg"},
+                new ProductImage{FileName = "FlyingBoomstick1.jpeg"},
+                new ProductImage{FileName = "FlyingBroomstick2.jpg"},
+                new ProductImage{FileName = "FlyingCarpet1.png"},
+                new ProductImage{FileName = "FlyingCarpet2.jpg"},
+                new ProductImage{FileName = "GlowingOrb1.jpg"},
+                new ProductImage{FileName = "GlowingOrb2.jpg"},
+                new ProductImage{FileName = "GlowingOrb3.jpg"},
+                new ProductImage{FileName = "GlowingOrb4.jpg"},
+                new ProductImage{FileName = "GlowingOrb5.jpg"}, //20
+                new ProductImage{FileName = "HardenedSword1.JPG"},
+                new ProductImage{FileName = "HardenedSword2.jpg"},
+                new ProductImage{FileName = "MaceOfSmiting1.jpeg"},
+                new ProductImage{FileName = "MaceOfSmiting2.jpg"},
+                new ProductImage{FileName = "Pistol.jpg"},
+                new ProductImage{FileName = "PortableBoat1.jpg"},
+                new ProductImage{FileName = "PortableBoat2.jpg"},
+                new ProductImage{FileName = "PortableBoat3.jpg"},
+                new ProductImage{FileName = "PortableBoat4.jpg"},
+                new ProductImage{FileName = "PotionOfHealing1.png"}, //30
+                new ProductImage{FileName = "PotionOfHealing2.png"},
+                new ProductImage{FileName = "PotionOfInvisibility.png"},
+                new ProductImage{FileName = "RingOfFeatherFalling.jpg"},
+                new ProductImage{FileName = "RingOfFeatherFalling2.jpg"},
+                new ProductImage{FileName = "RingOfRegeneration1.jpeg"},
+                new ProductImage{FileName = "RingOfRegeneration2.jpg"},
+                new ProductImage{FileName = "RobesOfTheLichKing.jpg"},
+                new ProductImage{FileName = "Stopwatch.jpg"},
+                new ProductImage{FileName = "SwordOfLifeStealing.png"},
+                new ProductImage{FileName = "TrollHideArmor1.jpg"}, //40
+                new ProductImage{FileName = "WandOfMagicMissiles1.jpeg"},
+                new ProductImage{FileName = "WandOfMagicMissiles2.png"},
+                new ProductImage{FileName = "WandOfMagicMissiles3.png"},
+                new ProductImage{FileName = "WandOfMagicMissiles4.png"},
+                new ProductImage{FileName = "WandOfMagicMissiles5.png"},
+                new ProductImage{FileName = "WingedBoots.jpg"},
+            };
+            productImages.ForEach(p => context.ProductImages.AddOrUpdate(c => c.FileName, p));
+            context.SaveChanges();
+
             var products = new List<Product>
             {
                 new Product {
@@ -69,7 +122,7 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 },
                 new Product {
                     Name = "Portable Boat",
-                    Description = "This miniture 80 person canoe can fit in your pocket. Place it in water, however, and it will rappidly grow to 40 metres long.",
+                    Description = "This miniature 80 person ship can fit in your pocket. Place it in water, however, and it will rappidly grow to 40 metres long.",
                     Price = 130000m,
                     CategoryID = categories.Single(c=>c.Name == "Misc").ID
                 },
@@ -80,7 +133,7 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                     CategoryID = categories.Single(c=>c.Name == "Amulets").ID
                 },
                 new Product {
-                    Name = "Ring of Feather Fall",
+                    Name = "Ring of Feather Falling",
                     Description = "While wearing this ring you drift gently to the ground while falling.",
                     Price = 24000m,
                     CategoryID = categories.Single(c=>c.Name == "Rings").ID
@@ -109,67 +162,67 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                     Price = 93800m,
                     CategoryID = categories.Single(c=>c.Name == "Armor").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Ring of regeneration",
                     Description = "This ring cause wounds to close and limbs to regrow after about a days while it is worn.",
                     Price = 163800m,
                     CategoryID = categories.Single(c=>c.Name == "Rings").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Cloak of Invisibility",
                     Description = "While you wear this cloak with the hood up you are completely invisible.",
                     Price = 2100000m,
                     CategoryID = categories.Single(c=>c.Name == "Cloaks").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Cloak of Gliding",
                     Description = "While you wear this cloak and hold the corners out, you can glide at tremendous speed.",
                     Price = 39119.40m,
                     CategoryID = categories.Single(c=>c.Name == "Cloaks").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Glowing Orb",
                     Description = "A swirling glow inside this cystal sphere emits a dull glow. Glowing orbs come in a number of colors including green, red, purple and white and have been magically hardened to prevent breaking when dropped as this was a common problem reported with previous models.",
                     Price = 240m,
                     CategoryID = categories.Single(c=>c.Name == "Misc").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Boots of Silence",
                     Description = "Crafted long ago by elfs, These boots will make you footsteps completely silent.",
                     Price = 62100m,
                     CategoryID = categories.Single(c=>c.Name == "Misc").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Flying Carpet",
                     Description = "A rug made from brightly colored fine thread. It can fly up to 8 people.",
                     Price = 265000m,
                     CategoryID = categories.Single(c=>c.Name == "Misc").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Robes of the Lich King",
                     Description = "These legendary robes wither and rot the wearers body making the wearer into an immortal lich. They also make casting even the most vile necromancy spells easier and controlling undead trivial.\n\nThese robe are NOT intented for use, but are meant as a display item. You might be required to pass a physiological test before being able to buy this item.",
                     Price = 15000000m,
                     CategoryID = categories.Single(c=>c.Name == "Robes").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Wand of Magic Missiles",
                     Description = "Pointing this wand at something and speaking its command word will cause multiple missiles to shoot out of it. Using it multiple times in a row will reduce the number of missiles it shoots until it is given a few hours to recharge.",
                     Price = 799.99m,
                     CategoryID = categories.Single(c=>c.Name == "Wands").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Potion of Healing",
                     Description = "Drinking it will fully healing minor wounds and will usually get you back on your feet even if you are badly wounded.",
                     Price = 39.99m,
                     CategoryID = categories.Single(c=>c.Name == "Potions").ID
                 },
-                  new Product {
+                new Product {
                     Name = "Potion of Invisibility",
                     Description = "Quaffing this potion will render you invisible for an hour.",
                     Price = 450m,
                     CategoryID = categories.Single(c=>c.Name == "Potions").ID
                 },
-                 new Product {
+                new Product {
                     Name = "Pistol",
                     Description = "A small weapon that can be held in one hand similar to a hand crossbow. It fires a small piece of lead for devastating effect.\n\nWarning: guns are still experimental and have been known to jam or explode.",
                     Price = 10000m,
@@ -206,7 +259,6 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                  UserID="ezio@asn.com", DateCreated=new DateTime(2507, 4, 15),
                  DeliveryName="Ezio" },
             };
-
             orders.ForEach(c => context.Orders.AddOrUpdate(o => o.DateCreated, c));
             context.SaveChanges();
 
@@ -238,8 +290,80 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 new OrderLine { OrderID = orders[5].OrderID, ProductID = products.Single( c=> c.Name == "Cloak of Invisibility").ID,
                     ProductName ="Cloak of Invisibility", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Cloak of Invisibility").Price },
             };
-
             orderLines.ForEach(c => context.OrderLines.AddOrUpdate(ol => ol.OrderID, c));
+            context.SaveChanges();
+
+            var productImageMappings = new List<ProductImageMapping>
+            {
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[0].ID, ProductImageID = productImages[9].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[0].ID, ProductImageID = productImages[10].ID },
+                new ProductImageMapping{ ImageNumber = 2, ProductID = products[0].ID, ProductImageID = productImages[11].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[1].ID, ProductImageID = productImages[39].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[2].ID, ProductImageID = productImages[21].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[2].ID, ProductImageID = productImages[22].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[3].ID, ProductImageID = productImages[6].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[3].ID, ProductImageID = productImages[7].ID },
+                new ProductImageMapping{ ImageNumber = 2, ProductID = products[3].ID, ProductImageID = productImages[8].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[4].ID, ProductImageID = productImages[23].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[4].ID, ProductImageID = productImages[24].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[5].ID, ProductImageID = productImages[26].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[5].ID, ProductImageID = productImages[27].ID },
+                new ProductImageMapping{ ImageNumber = 2, ProductID = products[5].ID, ProductImageID = productImages[28].ID },
+                new ProductImageMapping{ ImageNumber = 3, ProductID = products[5].ID, ProductImageID = productImages[29].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[6].ID, ProductImageID = productImages[38].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[7].ID, ProductImageID = productImages[33].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[7].ID, ProductImageID = productImages[34].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[8].ID, ProductImageID = productImages[1].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[9].ID, ProductImageID = productImages[46].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[10].ID, ProductImageID = productImages[12].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[10].ID, ProductImageID = productImages[13].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[11].ID, ProductImageID = productImages[40].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[12].ID, ProductImageID = productImages[35].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[12].ID, ProductImageID = productImages[36].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[14].ID, ProductImageID = productImages[5].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[15].ID, ProductImageID = productImages[16].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[15].ID, ProductImageID = productImages[17].ID },
+                new ProductImageMapping{ ImageNumber = 2, ProductID = products[15].ID, ProductImageID = productImages[18].ID },
+                new ProductImageMapping{ ImageNumber = 3, ProductID = products[15].ID, ProductImageID = productImages[19].ID },
+                new ProductImageMapping{ ImageNumber = 4, ProductID = products[15].ID, ProductImageID = productImages[20].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[16].ID, ProductImageID = productImages[2].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[16].ID, ProductImageID = productImages[3].ID },
+                new ProductImageMapping{ ImageNumber = 2, ProductID = products[16].ID, ProductImageID = productImages[4].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[17].ID, ProductImageID = productImages[14].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[17].ID, ProductImageID = productImages[15].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[18].ID, ProductImageID = productImages[37].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[19].ID, ProductImageID = productImages[41].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[19].ID, ProductImageID = productImages[42].ID },
+                new ProductImageMapping{ ImageNumber = 2, ProductID = products[19].ID, ProductImageID = productImages[43].ID },
+                new ProductImageMapping{ ImageNumber = 3, ProductID = products[19].ID, ProductImageID = productImages[44].ID },
+                new ProductImageMapping{ ImageNumber = 4, ProductID = products[19].ID, ProductImageID = productImages[45].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[20].ID, ProductImageID = productImages[30].ID },
+                new ProductImageMapping{ ImageNumber = 1, ProductID = products[20].ID, ProductImageID = productImages[31].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[21].ID, ProductImageID = productImages[32].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[22].ID, ProductImageID = productImages[25].ID },
+            };
+            productImageMappings.ForEach(p => context.ProductImageMappings.AddOrUpdate(ol => ol.ProductImageID, p));
             context.SaveChanges();
         }
     }

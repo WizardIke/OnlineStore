@@ -100,9 +100,11 @@ namespace _16125296_OnlineStore.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            ProductViewModel viewModel = new ProductViewModel();
-            viewModel.CategoryList = new SelectList(db.Categories, "ID", "Name");
-            viewModel.ImageLists = new List<SelectList>();
+            ProductViewModel viewModel = new ProductViewModel
+            {
+                CategoryList = new SelectList(db.Categories, "ID", "Name"),
+                ImageLists = new List<SelectList>()
+            };
             for (int i = 0; i < Constants.NumberOfProductImages; i++)
             {
                 viewModel.ImageLists.Add(new SelectList(db.ProductImages, "ID", "FileName"));
@@ -117,12 +119,14 @@ namespace _16125296_OnlineStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProductViewModel viewModel)
         {
-            Product product = new Product();
-            product.Name = viewModel.Name;
-            product.Description = viewModel.Description;
-            product.Price = viewModel.Price;
-            product.CategoryID = viewModel.CategoryID;
-            product.ProductImageMappings = new List<ProductImageMapping>();
+            Product product = new Product
+            {
+                Name = viewModel.Name,
+                Description = viewModel.Description,
+                Price = viewModel.Price,
+                CategoryID = viewModel.CategoryID,
+                ProductImageMappings = new List<ProductImageMapping>()
+            };
             //get a list of selected Images without any blanks
             string[] productImages = viewModel.ProductImages.Where(pi => !string.IsNullOrEmpty(pi)).ToArray();
             for (int i = 0; i < productImages.Length; i++)
