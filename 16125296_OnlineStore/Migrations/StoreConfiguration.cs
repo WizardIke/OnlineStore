@@ -42,7 +42,7 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 new ProductImage{FileName = "BootsOfSilence1.jpeg"},
                 new ProductImage{FileName = "BootsOfSilence2.jpg"},
                 new ProductImage{FileName = "BootsOfSilence3.jpg"},
-                new ProductImage{FileName = "CloakOdGliding.jpeg"},
+                new ProductImage{FileName = "CloakOfGliding.jpeg"},
                 new ProductImage{FileName = "DaggerOfVenom1.jpeg"},
                 new ProductImage{FileName = "DaggerOfVenom2.jpg"},
                 new ProductImage{FileName = "DaggerOfVenom3.png"},
@@ -55,7 +55,7 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 new ProductImage{FileName = "FlyingCarpet2.jpg"},
                 new ProductImage{FileName = "GlowingOrb1.jpg"},
                 new ProductImage{FileName = "GlowingOrb2.jpg"},
-                new ProductImage{FileName = "GlowingOrb3.jpg"},
+                new ProductImage{FileName = "GlowingOrb3.png"},
                 new ProductImage{FileName = "GlowingOrb4.jpg"},
                 new ProductImage{FileName = "GlowingOrb5.jpg"}, //20
                 new ProductImage{FileName = "HardenedSword1.JPG"},
