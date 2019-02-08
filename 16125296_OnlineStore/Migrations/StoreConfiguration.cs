@@ -31,6 +31,8 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 new Category {Name = "Cloaks" },
                 new Category {Name = "Potions" },
                 new Category {Name = "Robes" },
+                new Category {Name = "Enchanting" },
+                new Category {Name = "Tomes and Grimoires" },
              };
             categories.ForEach(c => context.Categories.AddOrUpdate(p => p.Name, c));
             context.SaveChanges();
@@ -84,6 +86,20 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 new ProductImage{FileName = "WandOfMagicMissiles4.png"},
                 new ProductImage{FileName = "WandOfMagicMissiles5.png"},
                 new ProductImage{FileName = "WingedBoots.jpg"},
+                new ProductImage{FileName = "Bahamut Summoning Grimoire.jpg"},
+                new ProductImage{FileName = "Ether.jpg"},
+                new ProductImage{FileName = "Fire Enchantment Stone.jpg"},
+                new ProductImage{FileName = "Grenade.jpg"}, //50
+                new ProductImage{FileName = "Hi Ether.jpg"},
+                new ProductImage{FileName = "Hi Potion.jpg"},
+                new ProductImage{FileName = "Keyblade.jpg"},
+                new ProductImage{FileName = "Phoenix Down.jpg"},
+                new ProductImage{FileName = "Save the King.jpg"},
+                new ProductImage{FileName = "Save the Queen.jpg"},
+                new ProductImage{FileName = "Water Enchantment Stone.png"},
+                new ProductImage{FileName = "Weapon Enchanting Kit.jpg"},
+                new ProductImage{FileName = "Xehanort's Tome of Darkness.jpg"},
+                new ProductImage{FileName = "CloakOfInvisibility.png"}, //60
             };
             productImages.ForEach(p => context.ProductImages.AddOrUpdate(c => c.FileName, p));
             context.SaveChanges();
@@ -188,7 +204,7 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 },
                 new Product {
                     Name = "Boots of Silence",
-                    Description = "Crafted long ago by elfs, These boots will make you footsteps completely silent.",
+                    Description = "Crafted long ago by elfs, these boots will make you footsteps completely silent.",
                     Price = 62100m,
                     CategoryID = categories.Single(c=>c.Name == "Misc").ID
                 },
@@ -212,7 +228,7 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 },
                 new Product {
                     Name = "Potion of Healing",
-                    Description = "Drinking it will fully healing minor wounds and will usually get you back on your feet even if you are badly wounded.",
+                    Description = "Drinking it will healing minor wounds and will usually get you back on your feet even if you are badly wounded.",
                     Price = 39.99m,
                     CategoryID = categories.Single(c=>c.Name == "Potions").ID
                 },
@@ -228,6 +244,84 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                     Price = 10000m,
                     CategoryID = categories.Single(c=>c.Name == "Guns").ID
                 },
+                new Product {
+                    Name = "Phoenix Down",
+                    Description = "Revives an unconscious or dying person.",
+                    Price = 300m,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                new Product {
+                    Name = "Greater Potion of Healing",
+                    Description = "Drinking it will close serious wounds.",
+                    Price = 550m,
+                    CategoryID = categories.Single(c=>c.Name == "Potions").ID
+                },
+                new Product {
+                    Name = "Ether",
+                    Description = "Refreshes the mind allowing you to cast spells and use fancy combat maneuvers for longer before tiring.",
+                    Price = 20m,
+                    CategoryID = categories.Single(c=>c.Name == "Potions").ID
+                },
+                new Product {
+                    Name = "Greater Ether",
+                    Description = "Greatly refreshes the mind allowing you to cast spells and use fancy combat maneuvers for longer before tiring.",
+                    Price = 320m,
+                    CategoryID = categories.Single(c=>c.Name == "Potions").ID
+                },
+                new Product {
+                    Name = "Keyblade",
+                    Description = "A key shaped sword used to battle the Heartless threat",
+                    Price = 60000m,
+                    CategoryID = categories.Single(c=>c.Name == "Weapons").ID
+                },
+                new Product {
+                    Name = "Save the Queen",
+                    Description = "The most powerful magic staff currently known about",
+                    Price = 20000000m,
+                    CategoryID = categories.Single(c=>c.Name == "Staves").ID
+                },
+                new Product {
+                    Name = "Save the King",
+                    Description = "The most powerful shield that is able to be used for attacking as well as defending",
+                    Price = 20000000m,
+                    CategoryID = categories.Single(c=>c.Name == "Weapons").ID
+                },
+                new Product {
+                    Name = "Grenade",
+                    Description = "Disposable ranged utility to clear an area of enemies",
+                    Price = 499.99M,
+                    CategoryID = categories.Single(c=>c.Name == "Misc").ID
+                },
+                new Product {
+                    Name = "Weapon Enchanting Kit",
+                    Description = "Provides the ability to add enchantments to weapons if compatible. Enchantments not included",
+                    Price = 15990m,
+                    CategoryID = categories.Single(c=>c.Name == "Enchanting").ID
+                },
+                new Product {
+                    Name = "Water Weapon Enchantment",
+                    Description = "Adds a water enchantment to a weapon. Enchanting Kit Required",
+                    Price = 1000m,
+                    CategoryID = categories.Single(c=>c.Name == "Enchanting").ID
+                },
+                new Product {
+                    Name = "Fire Weapon Enchantment",
+                    Description = "Adds a fire enchantment to a weapon Enchanting Kit Required",
+                    Price = 1000m,
+                    CategoryID = categories.Single(c=>c.Name == "Enchanting").ID
+                },
+                new Product {
+                    Name = "Xehanorts Tome of Darkness",
+                    Description = "The lost tome of Xehanort this tome bestows the reader the power of Darkness",
+                    Price = 10000000m,
+                    CategoryID = categories.Single(c=>c.Name == "Tomes and Grimoires").ID
+                },
+                new Product {
+                    Name = "Bahamut Summoning Grimiore",
+                    Description = "Gives the user the ability to summon Bahamut",
+                    Price = 3000000m,
+                    CategoryID = categories.Single(c=>c.Name == "Tomes and Grimoires").ID
+                },
             };
             products.ForEach(c => context.Products.AddOrUpdate(p => p.Name, c));
             context.SaveChanges();
@@ -235,29 +329,33 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
             var orders = new List<Order>
             {
                 new Order { DeliveryAddress = new Address { AddressLine1="Villa Auditore", Town="Monteriggioni",
-                 Country="Italy", PostCode="53035" }, TotalPrice=118539.40m,
-                 UserID="ezio@asn.com", DateCreated=new DateTime(2490, 11, 29),
-                 DeliveryName="Ezio" },
+                    Country="Italy", PostCode="53035" }, TotalPrice=118539.40m,
+                    UserID="ezio@asn.com", DateCreated=new DateTime(2490, 11, 29),
+                    DeliveryName="Ezio" },
                 new Order { DeliveryAddress = new Address { AddressLine1="45 Hausal Road", Town="Dlomable",
-                 Country="The Pembarium Empire", PostCode="47538" }, TotalPrice=56200m,
-                 UserID="vm@TheMagesGuild.com", DateCreated=new DateTime(2007, 6, 4),
-                 DeliveryName="Vendal Markimus" },
+                     Country="The Pembarium Empire", PostCode="47538" }, TotalPrice=56200m,
+                     UserID="vm@TheMagesGuild.com", DateCreated=new DateTime(2007, 6, 4),
+                    DeliveryName="Vendal Markimus" },
                 new Order { DeliveryAddress = new Address { AddressLine1="67 Gaiul Street", Town="North Dahort",
-                 Country="The Pembarium Empire", PostCode="78465" }, TotalPrice=163919.97m,
-                 UserID="Andrin@TheMagesGuild.com", DateCreated=new DateTime(2015, 8, 3),
-                 DeliveryName="Andrin Usdil" },
+                    Country="The Pembarium Empire", PostCode="78465" }, TotalPrice=163919.97m,
+                    UserID="Andrin@TheMagesGuild.com", DateCreated=new DateTime(2015, 8, 3),
+                    DeliveryName="Andrin Usdil" },
                 new Order { DeliveryAddress = new Address { AddressLine1="12 Palace boulevard", Town="Connarma",
-                 Country="The Pembarium Empire", PostCode="2348" }, TotalPrice=5760,
-                 UserID="Palargey@FastMail.com", DateCreated=new DateTime(2015, 9, 5),
-                 DeliveryName="Palargey Bauldine" },
+                    Country="The Pembarium Empire", PostCode="2348" }, TotalPrice=5760,
+                    UserID="Palargey@FastMail.com", DateCreated=new DateTime(2015, 9, 5),
+                    DeliveryName="Palargey Bauldine" },
                 new Order { DeliveryAddress = new Address { AddressLine1="31 Tavern Street", Town="Gosilia",
-                 Country="The North", PostCode="89501" }, TotalPrice=163800m,
-                 UserID="Jiak@example.com", DateCreated=new DateTime(2018, 1, 16),
-                 DeliveryName="Jiak Banrule" },
+                    Country="The North", PostCode="89501" }, TotalPrice=163800m,
+                    UserID="Jiak@example.com", DateCreated=new DateTime(2018, 1, 16),
+                    DeliveryName="Jiak Banrule" },
                 new Order { DeliveryAddress = new Address { AddressLine1="Villa Auditore", Town="Monteriggioni",
-                 Country="Italy", PostCode="53035" }, TotalPrice=2100000m,
-                 UserID="ezio@asn.com", DateCreated=new DateTime(2507, 4, 15),
-                 DeliveryName="Ezio" },
+                    Country="Italy", PostCode="53035" }, TotalPrice=2100000m,
+                    UserID="ezio@asn.com", DateCreated=new DateTime(2507, 4, 15),
+                    DeliveryName="Ezio" },
+                new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street", Town="San Fransokyo",
+                    Country="The United States of Japan", PostCode="34534" }, TotalPrice=61919.95m,
+                    UserID="Sora@OnlineStore.com", DateCreated=new DateTime(2019, 1, 29),
+                    DeliveryName="Sora" }
             };
             orders.ForEach(c => context.Orders.AddOrUpdate(o => o.DateCreated, c));
             context.SaveChanges();
@@ -289,8 +387,19 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
 
                 new OrderLine { OrderID = orders[5].OrderID, ProductID = products.Single( c=> c.Name == "Cloak of Invisibility").ID,
                     ProductName ="Cloak of Invisibility", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Cloak of Invisibility").Price },
+
+                new OrderLine { OrderID = orders[6].OrderID, ProductID = products.Single( c=> c.Name == "Phoenix Down").ID,
+                    ProductName ="Phoenix Down", Quantity =1, UnitPrice=products.Single( c=> c.Name == "Phoenix Down").Price },
+                new OrderLine { OrderID = orders[6].OrderID, ProductID = products.Single( c=> c.Name == "Potion of Healing").ID,
+                    ProductName="Potion of Healing", Quantity=5, UnitPrice=products.Single( c=> c.Name =="Potion of Healing").Price },
+                new OrderLine { OrderID = orders[6].OrderID, ProductID = products.Single( c=> c.Name == "Greater Potion of Healing").ID,
+                    ProductName ="Greater Potion of Healing", Quantity=2, UnitPrice=products.Single( c=> c.Name == "Greater Potion of Healing").Price },
+                new OrderLine { OrderID = orders[6].OrderID, ProductID = products.Single( c=> c.Name == "Keyblade").ID,
+                    ProductName ="Keyblade", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Keyblade").Price },
+                new OrderLine { OrderID = orders[6].OrderID, ProductID = products.Single( c=> c.Name == "Greater Ether").ID,
+                    ProductName ="Greater Ether", Quantity=1, UnitPrice=products.Single( c=> c.Name == "Greater Ether").Price }
             };
-            orderLines.ForEach(c => context.OrderLines.AddOrUpdate(ol => ol.OrderID, c));
+            orderLines.ForEach(c => context.OrderLines.AddOrUpdate(ol => new { ol.OrderID, ol.ProductID }, c));
             context.SaveChanges();
 
             var productImageMappings = new List<ProductImageMapping>
@@ -333,6 +442,8 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 new ProductImageMapping{ ImageNumber = 0, ProductID = products[12].ID, ProductImageID = productImages[35].ID },
                 new ProductImageMapping{ ImageNumber = 1, ProductID = products[12].ID, ProductImageID = productImages[36].ID },
 
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[13].ID, ProductImageID = productImages[60].ID },
+
                 new ProductImageMapping{ ImageNumber = 0, ProductID = products[14].ID, ProductImageID = productImages[5].ID },
 
                 new ProductImageMapping{ ImageNumber = 0, ProductID = products[15].ID, ProductImageID = productImages[16].ID },
@@ -362,6 +473,32 @@ namespace _16125296_OnlineStore.Migrations.StoreConfiguration
                 new ProductImageMapping{ ImageNumber = 0, ProductID = products[21].ID, ProductImageID = productImages[32].ID },
 
                 new ProductImageMapping{ ImageNumber = 0, ProductID = products[22].ID, ProductImageID = productImages[25].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[23].ID, ProductImageID = productImages[54].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[24].ID, ProductImageID = productImages[52].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[25].ID, ProductImageID = productImages[48].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[26].ID, ProductImageID = productImages[51].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[27].ID, ProductImageID = productImages[53].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[28].ID, ProductImageID = productImages[56].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[29].ID, ProductImageID = productImages[55].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[30].ID, ProductImageID = productImages[50].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[31].ID, ProductImageID = productImages[58].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[32].ID, ProductImageID = productImages[57].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[33].ID, ProductImageID = productImages[49].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[34].ID, ProductImageID = productImages[59].ID },
+
+                new ProductImageMapping{ ImageNumber = 0, ProductID = products[35].ID, ProductImageID = productImages[47].ID },
             };
             productImageMappings.ForEach(p => context.ProductImageMappings.AddOrUpdate(ol => ol.ProductImageID, p));
             context.SaveChanges();

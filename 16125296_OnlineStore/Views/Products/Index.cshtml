@@ -8,6 +8,7 @@
     @(String.IsNullOrWhiteSpace(Model.Search) ? "Showing all" : "You search for " + Model.Search + " found") @Model.Products.TotalItemCount products
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {
+        <br />
         @Html.ActionLink("Create New", "Create")
     }
     @using (Html.BeginRouteForm("ProductsIndex", FormMethod.Get))

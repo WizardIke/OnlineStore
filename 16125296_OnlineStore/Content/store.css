@@ -205,3 +205,14 @@ td {
     width: 5em;
     height: 5em;
 }
+
+img {
+    width: 6em;
+    height: 6em;
+}
+
+.smallIcon {
+    width: 4em;
+    height: 4em;
+    padding:5px
+}

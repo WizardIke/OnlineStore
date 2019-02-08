@@ -53,7 +53,7 @@
                 @foreach (var item in Model.ProductImageMappings.OrderBy(pim => pim.ImageNumber))
                 {
                     <a href="@(Url.Content(Constants.ProductImagePath) +  item.ProductImage.FileName)">
-                        <img src="@(Url.Content(Constants.ProductThumbnailPath) + item.ProductImage.FileName)" style=padding:5px>
+                        <img src="@(Url.Content(Constants.ProductThumbnailPath) + item.ProductImage.FileName)" class="smallIcon">
                     </a>
                 }
             </dd>
