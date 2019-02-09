@@ -1,10 +1,11 @@
 ﻿body {
-    background-color: white;
     /*max-width: 1024px;*/
     margin: 0 auto;
-    font-size: 20px;
+    font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(14, 117, 204);
+    color: #000064;
+    background-image: url(Backgrounds/PaperTexture.jpg);
+    background-repeat: repeat;
 }
 
 /* Firefox < 16 */
@@ -62,10 +63,10 @@ html {
 
 footer {
     margin-bottom: 20px;
-    background-color: deepskyblue;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: lightgray;
     height: 30px;
-    /*ine-height: 30px;*/
+    line-height: 20px;
     padding: 5px;
     border-radius: 5px;
 }
@@ -83,8 +84,9 @@ h1, h2 {
 }
 
 img {
-    border: 3px solid deepskyblue;
-    border-radius: 3px;
+    outline: none;
+    border-color: #1111ed;
+    box-shadow: 0 0 10px #1111ed;
 }
 
 .large-bold-text {
@@ -136,10 +138,11 @@ label {
 
 .form-control {
     width: 250px;
-    border-radius: 3px;
-    border: solid deepskyblue;
     color: rgb(14, 117, 204);
     display: block;
+    outline: none;
+    border-color: #1111ed;
+    box-shadow: 0 0 10px #1111ed;
 }
 
 .text-danger {
@@ -193,12 +196,20 @@ th {
     font-weight: bold;
     text-align: left;
     padding: 5px;
-    border-bottom: 1px solid;
 }
 
 td {
     padding: 5px;
     vertical-align: top;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    border-top: 1px solid #000064;
 }
 
 .icon {
@@ -214,5 +225,42 @@ img {
 .smallIcon {
     width: 4em;
     height: 4em;
-    padding:5px
+    padding: 5px;
+    margin: 5px;
+}
+
+.navbar-static-top {
+    background-image: url(Backgrounds/StarTexture.jpg);
+    background-repeat: repeat;
+    font-size: 20px;
+}
+
+.jumbotron {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+hr {
+    border-top: 1px solid #000064;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ccc;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ccc;
+}
+
+.navbar-static-top input, .navbar-static-top button {
+    color: #ccc;
+    background-color: #232323;
+}
+
+.navbar-static-top button:hover {
+    color: #fff;
+    background-color: #232350;
+}
+
+.navbar-static-top input:focus {
+    color: #fff;
 }
