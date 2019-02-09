@@ -220,12 +220,12 @@ td {
 img {
     width: 6em;
     height: 6em;
+    object-fit: contain;
 }
 
 .smallIcon {
     width: 4em;
     height: 4em;
-    padding: 5px;
     margin: 5px;
 }
 

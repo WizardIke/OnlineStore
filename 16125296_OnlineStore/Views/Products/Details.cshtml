@@ -45,8 +45,7 @@
         {
             <dt></dt>
             <dd>
-                <img src="@(Url.Content(Constants.ProductImagePath) + Model.ProductImageMappings.OrderBy(pim=>pim.ImageNumber).ElementAt(0).ProductImage.FileName)"
-                     style=padding:5px; />
+                <img src="@(Url.Content(Constants.ProductImagePath) + Model.ProductImageMappings.OrderBy(pim=>pim.ImageNumber).ElementAt(0).ProductImage.FileName)" />
             </dd>
             <dt></dt>
             <dd>
